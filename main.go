@@ -31,9 +31,9 @@ var (
 	wg         sync.WaitGroup
 
 	initialParameters inits.InitParams
-	boolFirstFrame    = true
+	//boolFirstFrame    = true
 
-	counter = 0
+	//counter = 0
 )
 
 // Grabber - считывание кадров
@@ -148,8 +148,9 @@ func Processing() {
 // ProcessingData - обработка кадров видеопотока
 func ProcessingData(f *framedata.FrameData) {
 
-	var imgCopy framedata.FrameData
-	imgCopy = (*f).Clone()
+	//var imgCopy framedata.FrameData
+
+	imgCopy := (*f).Clone()
 	defer imgCopy.FrameMat.Close()
 	defer imgCopy.FrameMatTrue.Close()
 
@@ -214,7 +215,7 @@ func ProcessingData(f *framedata.FrameData) {
 
 	}
 
-	boolFirstFrame = false
+	//boolFirstFrame = false
 
 	if initialParameters.ShowIm {
 
@@ -231,7 +232,7 @@ func ProcessingData(f *framedata.FrameData) {
 func main() {
 	log.Println("Starting program...")
 	var err error
-	cfgName := flag.String("cfg", "go_ip.json", "Config file path")
+	cfgName := flag.String("cfg", "example.json", "Config file path")
 	flag.Parse()
 	err = initialParameters.SetParams(*cfgName)
 	if err != nil {
