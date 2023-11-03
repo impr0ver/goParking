@@ -1,32 +1,12 @@
 # goparking
-This project is targeted to detect which parking lot (actually any user defined polygon) are occupied by any object.</br>
-It uses good computer vision package GoCV (see https://github.com/hybridgroup/gocv) as bindings to Opencv 3.x (https://github.com/opencv/opencv)
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Support](#support)
-- [Thanks](#thanks)
+This project is taken from https://github.com/LdDl/goparking.git.
+Thank you "LdDl" for a wonderful project. The project has been modified due to new versions of the opencv and gocv libraries. In some places in the code, type casting was performed. The function of creating a photo from the camera based on an event has also been added.
+A bug has also been identified where the "WaitKey" function will cause the application to panic. The error is related to running this function inside the goroutine (for mac users).
 
 ## Installation
-
 As it uses GoCV, first of all you have to install it. Please see steps described here https://gocv.io/getting-started/.</br>
+If you successfully installed everything (GoCV, OpenCV, OpenCV-contrib), then you good to go. 
 
-If you successfully installed everything (GoCV, OpenCV, OpenCV-contrib), then you good to go. Just install it via `get`:
-
-```go
-go get github.com/LdDl/goparking
-```
-
-## Usage
-
-- Build</br>
-Go to $GOPATH/src/LdDl/goparking folder.</br>
-Open terminal in that folder and type:
-```go
-go build main.go
-```
 
 - Configuration</br>
 Open example.json file in main project folder and edit fields to fit your needs.
@@ -35,7 +15,7 @@ Open example.json file in main project folder and edit fields to fit your needs.
   // videoType - type of input. It can be either local file or web-service ("url") or connected camera to your PC ("device")
   "videoType": "url",
   // videoSource - link to your video. If your videoType is "device", then just provide number of that device: for example "0"
-  "videoSource": "/datasets/parkinglot_1_480p.mp4",
+  "videoSource": "/results/parking.mp4",
   // imageResizing - parameter to scale your image (for fast proccessing or other needs). In example it is same as input.
   "imageResizing": [
     854,
@@ -79,25 +59,10 @@ Open example.json file in main project folder and edit fields to fit your needs.
 ```
 
 - Run</br>
-For Linux:
+For Linux, Windows, Mac:
 ```cmd
-./main -cfg=example.json
+./main
 ```
-For Windows:
-```cmd
-main.exe -cfg=example.json
-```
-- Enjoy
-![-](https://raw.githubusercontent.com/LdDl/goparking/master/datasets/output/im1.png)
-![-](https://raw.githubusercontent.com/LdDl/goparking/master/datasets/output/im2.png)
-![-](https://raw.githubusercontent.com/LdDl/goparking/master/datasets/output/im3.png)
-![-](https://raw.githubusercontent.com/LdDl/goparking/master/datasets/output/im4.png)
-![-](https://raw.githubusercontent.com/LdDl/goparking/master/datasets/output/im5.png)
-
-## Support
-
-If you have troubles please [open an issue](https://github.com/LdDl/goparking/issues/new).
 
 ## Thanks
-Big thanks to creators and developers of [GoCV](https://gocv.io/) for providing bindings to OpenCV </br>
-And thanks to this [project](https://github.com/eladj/detectParking) for algorithm template.
+Big thanks to creator 
