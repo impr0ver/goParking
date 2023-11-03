@@ -3,6 +3,9 @@ This project is taken from https://github.com/LdDl/goparking.git.
 Thank you "LdDl" for a wonderful project. The project has been modified due to new versions of the opencv and gocv libraries. In some places in the code, type casting was performed. The function of creating a photo from the camera based on an event has also been added.
 A bug has also been identified where the "WaitKey" function will cause the application to panic. The error is related to running this function inside the goroutine (for mac users).
 
+![parkingImage_2d_lot_2023-11-03_16_49_37](https://github.com/impr0ver/goParking/assets/146122577/6b1d9c29-43f1-4f90-9def-e7226a5ad170)
+
+
 ## Installation
 As it uses GoCV, first of all you have to install it. Please see steps described here https://gocv.io/getting-started/.</br>
 If you successfully installed everything (GoCV, OpenCV, OpenCV-contrib), then you good to go. 
